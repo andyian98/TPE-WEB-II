@@ -1,11 +1,18 @@
 # TPE-WEB-II
-Integrantes: Almirón Ana Clara | Ianantuoni Buono Andrea Belén ianantuoni98@gmail.com
 
-temática: tienda de zapatos
-se eligieron las entidades marca en el lado n de la relación y calzado en el lado 1 de la relación. la tienda clasifica a sus calzados según la marca: cada marca tiene diferentes calzados y a su vez los calzados solo pueden pertenecer a una marca.
+**Integrantes del grupo**:
+- Almirón, Ana Clara (anialmrn@gmail.com)
+- Ianantuoni Buono, Andrea Belén (ianantuoni98@gmail.com)
 
-A su vez, de acuerdo con la consigna creamos una tabla para usuario tanto administrador como invitado, de modo que de acuerdo a cómo esté logrado uno pueda revisar el catálogo de la tienda y otro tenga acceso a la base de datos y pueda realizar CRUD
+**Temática**:
+El proyecto consiste en el diseño de un modelo de datos para una tienda de calzados.
+
+**Descripción**: Se establecieron las siguientes entidades para el modelo de datos: `marca` y `calzado`. La relación entre ellas es de uno a muchos, donde cada `marca` puede tener múltiples `calzados`, pero cada `calzado` solo puede pertenecer a una `marca`. La tienda clasifica sus productos según la marca a la que pertenecen.
+
+Además, creamos una tabla para `usuario`, que puede ser de dos tipos: administrador o invitado. Dependiendo del tipo de usuario, se otorgan diferentes niveles de acceso: el administrador puede realizar operaciones CRUD (Crear, Leer, Actualizar, Eliminar), mientras que el invitado solo puede ver el catálogo de la tienda.
 
 
-Diagrama de entidad relación: 
-Código SQL:
+### Diagrama Entidad-Relación (DER)
+
+![Imagen del Diagrama Enridad-Relación (DER)](DER.jpeg)
+
