@@ -31,13 +31,13 @@ define('BASE_URL', '//'.$_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] 
             break;
 
             case 'login':
-                $controller = new AuthController();
+                $controller = new UserController();
                 $controller->showLogin();
                 break;
     
     
         case 'logout':
-            $controller = new AuthController();
+            $controller = new UserController();
             $controller->logout();
             break;
 ?>
