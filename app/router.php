@@ -2,7 +2,7 @@
 
 require_once "app/Controller/homeController.php";
 require_once "app/Controller/MarcasController.php";
-require_once "app/Controller/clothesController.php";
+require_once "app/Controller/CalzadoController.php";
 
 define('BASE_URL', '//'.$_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']).'/');
 
