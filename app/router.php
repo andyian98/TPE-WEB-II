@@ -1,0 +1,43 @@
+<?php
+
+require_once "app/Controller/homeController.php";
+require_once "app/Controller/MarcasController.php";
+require_once "app/Controller/clothesController.php";
+
+define('BASE_URL', '//'.$_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']).'/');
+
+    
+    if (empty($_GET['action'])) {       
+        $_GET['action'] = 'home';
+    }
+
+    $action = $_GET['action'];
+    $parametro = explode('/', $action);
+   
+    switch ($parametro[0]) {
+        case 'home':
+            $controller = new homeController();
+            $controller->showHome();
+        break;
+        
+        case 'Marcas':
+            $controller = new MarcasController();
+            $controller->showMarcas();
+            break;
+
+        case 'Zapatos':
+            $controller = new CalzadoController();
+            $controller->showCalzado();
+            break;
+
+            case 'login':
+                $controller = new AuthController();
+                $controller->showLogin();
+                break;
+    
+    
+        case 'logout':
+            $controller = new AuthController();
+            $controller->logout();
+            break;
+?>
