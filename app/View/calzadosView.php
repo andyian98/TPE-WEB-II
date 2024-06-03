@@ -4,10 +4,10 @@ require_once "../View/View.php";
 
 class CalzadosView extends View {
 
-    public function __construct()
-    {
-        parent::__construct("calzados");
-    }
-    
+  function showCalzados($calzados){ 
+
+    $this->smarty->assign("calzados", $calzados);
+    $this->smarty->display("htmlCalzados.tpl");
+}
 }
 ?>
