@@ -14,5 +14,5 @@ Además, creamos una tabla para `usuario`, que puede ser de dos tipos: administr
 
 ### Diagrama Entidad-Relación (DER)
 
-![Imagen del Diagrama Enridad-Relación (DER)](templates/DER.jpeg)
+![Imagen del Diagrama Enridad-Relación (DER)](DER.png)
 
