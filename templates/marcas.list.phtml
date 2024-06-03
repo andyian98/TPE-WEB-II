@@ -1,0 +1,21 @@
+<?php
+require 'templates/header.phtml';
+?>
+
+<ul class="list-group list-group-item-info">
+<?php foreach($data as $marca): ?>
+    <li class="list-group-item list-group-item-action list-group-item-info">
+        <div>
+            <b> <?=$marca->id_marca?> | <?=$marca->nombre?> | <?=$marca->descripcion?> </b>
+            <button><a href="formMarca/<?=$marca->id_marca?>">Editar</a></button>
+            <button><a href="marca/<?=$marca->id_marca?>">Ver</a></button>
+        </div>
+    </li>
+<?php endforeach ?>
+</ul>
+
+<p class="mt-3"><small>Mostrando <?=count($data)?> marcas</small></p>
+
+<?php
+require 'templates/footer.phtml';
+?>

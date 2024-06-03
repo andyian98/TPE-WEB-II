@@ -16,27 +16,29 @@ class authenticationController {
         $this->view->showLogin();
     }
 
-    public function validateUser(){
-        $email = $_POST['user'];
-        $password = $_POST['password'];
+    public function auth(){
+        $email=$_POST['email'];
+        $password=$_POST['password'];
 
         if(empty($email) || empty($password)){
-            $this->view->showLogin("Hay datos sin completar");
+            $this->view->showLogin('Faltan completar datos');
             return;
         }
 
-        $email = $this->model->getByUser($email);
-
-        if($email && password_verify($password, $email->password)){
-            authenticationHelper::login($email);
+        // busco el usuario
+        $user = $this->model->getByEmail($email);
+        if ($user && password_verify($password, $user->password)) {
+            // Usuario autenticado correctamente
+            authenticationHelper::login($user);
             header('Location: ' . BASE_URL);
         } else {
-            $this->view->showLogin('Correo inválido');
+            // Usuario o contraseña inválidos
+            $this->view->showLogin('Usuario o contraseña inválidos');
         }
     }
 
-    public function logout(){
+    public function logout() {
         authenticationHelper::logout();
-        header('Location: ' . BASE_URL . '/home');
+        header('Location: ' . BASE_URL);    
     }
 }

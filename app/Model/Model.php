@@ -4,10 +4,19 @@ require_once "config.php";
 class Model{
 
     protected $db; 
+    protected $table;
 
     public function __construct(){
         $this->db=new PDO('mysql:host=' . MYSQL_HOST . 'dbname=' . MYSQL_DB . ';charset=utf8', MYSQL_USER, MYSQL_PASSWORD);
         $this->deploy();
+    }
+
+    public function getById($id) {
+        $query = $this->db->prepare('SELECT * FROM '.$this->table.' WHERE id = ?');
+        $query->execute([$id]);
+        $data = $query->fetch(PDO::FETCH_OBJ);
+
+        return $data;
     }
 
     function deploy(){

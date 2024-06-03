@@ -1,0 +1,16 @@
+<?php require 'templates/header.phtml' ?>
+
+<div class="mt-5 w-25 mx-auto">
+    <form method="POST" action='formMarcas<?php if (isset($id_marca)) {echo "/" . $id_marca; } ?>'>
+        <input type="text" name="nombre" placeholder="Ingrese el nombre de la marca">
+        <input type="text" name="descripción" placeholder="Ingrese una descripción para la marca">
+        <?php if (isset($id_marca)) { ?>
+            <button type="submit" class="btn btn-primary mt-3">Modificar Marca</button>
+        <?php
+        } else { ?>
+            <button type="submit" class="btn btn-primary mt-3">Agregar Marca</button>
+        <?php } ?>
+    </form>
+</div>
+
+<?php require 'templates/footer.phtml' ?>

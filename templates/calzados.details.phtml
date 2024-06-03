@@ -1,0 +1,21 @@
+<?php require '../templates/header.phtml' ?>
+
+<ul class="list-group list-group-item-info">
+    <li class="list-group-item list-group-item-action list-group-item-info">
+        <div>
+            
+            <p> Nombre | <?=$data->nombre?> </p>
+            <p> Tipo | <?=$data->tipo?></p>
+            <p> Talle | <?=$data->talle?></p>
+            <p> Precio | <?=$data->precio?></p>
+            <p> Descripción | <?= $data->descripcion?></p>
+            
+            <button><a href="formCalzados/<?=$data->id_calzado?>">Editar</a></button>
+            <button><a href="calzados">Volver</a></button>
+            <button><a href="deleteCalzado/<?=$data->id_calzado?>">Borrar</a></button>
+        </div>
+        
+    </li>
+</ul>
+
+<?php require '../templates/footer.phtml' ?>

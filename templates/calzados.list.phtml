@@ -1,0 +1,29 @@
+<?php require '../templates/header.phtml' ?>
+
+<div>
+    <b>Filtrar por marca:</b>
+    <?php
+    foreach ($data["marcas"] as $marca) {
+    ?>
+        <button><a href="calzados?filtro=<?= $marca->id_marca?>"> <?= $marca->nombre ?> </a></button>
+    <?php
+    }
+    ?>
+</div>
+
+<ul class="list-group list-group-item-info">
+    <?php foreach ($data["calzados"] as $calzado) : ?>
+        <li class="list-group-item list-group-item-action list-group-item-info">
+            <div>
+                <b><?= $calzado->nombre ?> | <?= $calzado->tipo ?> | Talle: <?= $calzado->talle ?> | Precio: <?= $calzado->precio ?></b>
+                <b><?= $calzado->descripcion ?></b>
+                <button><a href="formCalzados/<?= $calzado->id_calzado ?>">Editar</a></button>
+                <button><a href="calzados/<?= $calzado->id_calzado ?>">Ver</a></button>
+            </div>
+        </li>
+    <?php endforeach ?>
+</ul>
+
+<p class="mt-3"><small>Mostrando <?= count($data["calzados"]) ?> calzados</small></p>
+
+<?php require '../templates/footer.phtml' ?>
