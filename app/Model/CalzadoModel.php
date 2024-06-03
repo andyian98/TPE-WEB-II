@@ -1,43 +1,34 @@
 <?php
-require_once "TPE/Model/Model.php"
+require_once "./Model.php";
 
-class CalzadoModel extends Model{
-
-
-    function getAll(){
-        
-        $db=$this->createConexion();
-        $sentencia=$db->prepare(SELECT * FROM calzado)
-        $sentencia->execute()
-        $calzados=$sentencia->(PDO::FETCH_OBJ);
-        
+class CalzadoModel extends Model {
+    
+    function getAll() {
+        $db = $this->db;
+        $sentencia = $db->prepare("SELECT * FROM calzado");
+        $sentencia->execute();
+        $calzados = $sentencia->fetchAll(PDO::FETCH_OBJ);
         return $calzados;
     }
 
-
-
-
-     
-    function insert($nombre, $tipo, $talle, $precio, $descripcion, $marca){
-        $db = $this->createConexion();
-
-        $resultado= $db->prepare("INSERT INTO calzado (nombre, tipo, talle, precio, descripcion) VALUES (?,?,?)");
-        $resultado->execute([$nombre, $descr, $prioridad]); 
+    function insert($nombre, $tipo, $talle, $precio, $descripcion, $marca) {
+        $db = $this->db;
+        $resultado = $db->prepare("INSERT INTO calzado (nombre, tipo, talle, precio, descripcion, marca) VALUES (?, ?, ?, ?, ?, ?)");
+        $resultado->execute([$nombre, $tipo, $talle, $precio, $descripcion, $marca]);
     }
-    
-    
-    function delete($id){
-        $db = $this->createConexion();
-        $resultado= $db->prepare("DELETE FROM calzado WHERE id = ?");
-        $resultado->execute([$id]); 
+
+    function delete($id) {
+        $db = $this->db;
+        $resultado = $db->prepare("DELETE FROM calzado WHERE id_calzado = ?");
+        $resultado->execute([$id]);
     }
-    
-    function getByMarca($marca){
-        $db = $this->createConexion();
+
+    function getByMarca($marca) {
+        $db = $this->db;
         $sentencia = $db->prepare("SELECT * FROM calzado WHERE marca = ?");
         $sentencia->execute([$marca]);
-        $marca = $sentencia->fetch(PDO::FETCH_OBJ);
-        return $marca;
+        $calzados = $sentencia->fetchAll(PDO::FETCH_OBJ);
+        return $calzados;
     }
-   
+
 }

@@ -1,15 +1,14 @@
 <?php
-require_once "app/Model/Model.php"
+require_once "./Model.php";
 
 class UserModel extends Model{
 
     function getUser($email){
-        $db = $this->createConexion();
+        $db = $this->db;
     
-        $sentencia = $db->("SELECT * FROM usuario WHERE email = ?");
-        $sentencia->execute([$email])
-        $usuario=$sentencia->(PDO::FETCH_OBJ);
+        $sentencia = $db->prepare("SELECT * FROM usuario WHERE email = ?");
+        $sentencia->execute([$email]);
+        $usuario=$sentencia->fetch(PDO::FETCH_OBJ);
         return $usuario;
     }
 }
-?>

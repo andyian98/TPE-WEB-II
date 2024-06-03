@@ -27,19 +27,18 @@ define('BASE_URL', '//'.$_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] 
             $controller->showMarcas();
             break;
 
-        case 'Zapatos':
+        case 'Calzados':
             $controller = new CalzadoController();
             $controller->showCalzado();
             break;
 
-            case 'login':
-                $controller = new UserController();
-                $controller->showLogin();
-                break;
-    
+        case 'login':
+           $controller = new UserController();
+            $controller->showLogin();
+            break;
     
         case 'logout':
             $controller = new UserController();
             $controller->logout();
             break;
-?>
+        }
