@@ -1,20 +1,14 @@
 <?php
 
 class authenticationView {
-    public function showHome($error = null) {
-        require 'templates/login.phtml';
-    }
-
-    public function showCalzado($calzados, $marca){
-        require 'templates/calzados.phtml';
-    }
-
-    public function showError($error){
-        require 'templates/showError.phtml';
-    }
+  function showLogin($msj = null)
+  {
     
-    public function showLogin($error = null){
-        require 'templates/login.phtml';
-    }
+    
+    $this->smarty->assign("msj", $msj);
+    $this->smarty->display('login.phtml');
 
+ 
+
+  }
 }
