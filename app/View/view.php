@@ -1,28 +1,22 @@
 <?php
 
-abstract class View
-{
-    protected $recurso;
+require_once "libs/Smarty.class.php";
+require_once "helpers/AuthHelpers.php";
 
-    public function __construct($recurso)
-    {
-        $this->recurso = $recurso;
+class View {
+
+
+    protected $smarty;
+   
+    public function __construct(){
+        $this->smarty = new Smarty();
+        $this->smarty->assign("base", BASE_URL);
+        $this->smarty->assign("logeado", $this->isLogged());
+    
     }
 
-    public static function displayError($error = null)
-    {
-        require "templates\error.phtml";
-    }
-    public function showList($data)
-    {
-        require 'templates/' . $this->recurso . '.list.phtml';
-    }
-    public function showDetalle($data)
-    {
-        require "templates/" . $this->recurso . ".details.phtml";
-    }
-    public function showForm($id = null, $data = null)
-    {
-        require 'templates/form.' . $this->recurso . '.phtml';
-    }
+    private function isLogged(){
+        return AuthHelpers::isLogged();
+    }   
+  
 }
