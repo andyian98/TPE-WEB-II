@@ -1,5 +1,5 @@
 <?php
-require_once "app\View\View.php";
+require_once "View.php";
 
 class MarcasView extends View
 {

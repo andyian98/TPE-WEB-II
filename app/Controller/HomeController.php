@@ -1,12 +1,11 @@
 <?php
 
-require_once "app\View\HomeView.php";
+require_once "app/View/HomeView.php";
 
 class HomeController{
     private $view;
 
-    public function __construct()
-    {
+    public function __construct(){
         $this->view = new HomeView();
     }
 

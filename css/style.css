@@ -1,5 +1,18 @@
-#carouselExampleIndicators .carousel-item img {
-    object-fit: cover;
-    max-width: 100%;
+
+
+.carrousel{
+    padding: 5px;
+    padding-left: 10px;
+    width: 100%;
     height: auto;
+    box-sizing: border-box;
+}
+
+.card-img-top {
+    flex-direction: row;
+    background-color: rgb(158, 94, 94);
+   padding: 10px;
+   margin: 20px auto;
+   width: 10%;
+   height: auto;
 }

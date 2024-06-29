@@ -1,5 +1,5 @@
 <?php
-require_once "app\Model\Model.php";
+require_once "app/Model/Model.php";
 
 class MarcasModel extends Model {
     
@@ -12,7 +12,7 @@ class MarcasModel extends Model {
     }
     function getById($id_marca) {
         $db = $this->createConnection();
-        $sentencia = $db->prepare("SELECT * FROM marca WHERE id = ?");
+        $sentencia = $db->prepare("SELECT * FROM marca WHERE id_marca = ?");
         $sentencia->execute([$id_marca]);
         $marca = $sentencia->fetch(PDO::FETCH_OBJ);
         return $marca;

@@ -1,6 +1,6 @@
 <?php 
 
-require_once "app\Model\Model.php";
+require_once "app/Model/Model.php";
 
 class AuthModel extends Model {
 
@@ -12,7 +12,5 @@ class AuthModel extends Model {
         $sentencia->execute([$email]);
         $log_in = $sentencia->fetch(PDO::FETCH_OBJ);
         return $log_in;
-
     }
-
 }

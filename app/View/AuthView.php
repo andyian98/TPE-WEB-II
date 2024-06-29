@@ -1,17 +1,9 @@
 <?php
-require_once 'libs/Smarty.class.php';
+require_once "View.php";
 
-class AuthView {
-  private $smarty;
-
-  function __construct() {
-    $this->smarty = new Smarty();
-    $this->smarty->template_dir = 'templates';
-    $this->smarty->compile_dir = 'templates_c';
-  }
-  function showLogin($msg = null)
-  {
+class AuthView extends View {
+  function showLogin($msg = ''){
     $this->smarty->assign("msg", $msg);
-    $this->smarty->display('login.phtml');
+    $this->smarty->display('login.tpl');
   }
 }

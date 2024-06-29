@@ -3,7 +3,7 @@ require_once "config.php";
 
 class Model {
 
-    protected $connection;
+    private $connection;
     
     public function __construct()
     {
@@ -41,10 +41,7 @@ class Model {
 
 
     private function createTables() {
-        $password = "admin";
-        $password_hashed = password_hash($password, PASSWORD_DEFAULT);
-            $sql = "
-            CREATE TABLE IF NOT EXISTS `calzado` (
+            $sql = "CREATE TABLE IF NOT EXISTS `calzado` (
             `id_calzado` int(11) NOT NULL,
             `nombre` varchar(20) NOT NULL,
             `tipo` varchar(20) NOT NULL,

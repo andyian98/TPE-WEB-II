@@ -1,12 +1,14 @@
 <?php
-require_once 'app\Controller\HomeController.php';
-require_once 'app\Model\MarcasModel.php';
-require_once 'app\Controller\AuthController.php';
-require_once 'app\Controller\CalzadosController.php';
+require_once 'app/Controller/HomeController.php';
+require_once 'app/Model/MarcasModel.php';
+require_once 'app/Controller/AuthController.php';
+require_once 'app/Controller/CalzadosController.php';
 require_once 'app/Controller/ErrorController.php';
+require_once 'app/Controller/MarcasController.php';
+require_once 'app/Controller/AuthController.php';
+require_once 'app/Controller/CalzadosController.php';
 
-define('BASE_URL', '//'.$_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']).'/');
-
+define('BASE_URL', 'http://' . $_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']) . '/');
     
     if (empty($_GET['action'])) {       
         $_GET['action'] = 'home';
@@ -44,7 +46,7 @@ define('BASE_URL', '//'.$_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] 
             $controller = new MarcasController();
             $controller->updateMarca();
             break;
-        case 'calzados':
+        case 'allCalzados':
             $controller = new CalzadosController();
             $controller->showCalzados();
             break;
@@ -52,9 +54,9 @@ define('BASE_URL', '//'.$_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] 
             $controller = new CalzadosController();
             $controller->showCalzado($parametro[1]);
             break;
-        case 'editCalzado':
+        case 'editCalzadoForm':
             $controller = new CalzadosController();
-            $controller->editCalzado($parametro[1]);
+            $controller->editCalzadoForm($parametro[1]);
             break;
         case 'updateCalzado':
             $controller = new CalzadosController();

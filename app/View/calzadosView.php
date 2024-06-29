@@ -1,17 +1,16 @@
 
 <?php
-require_once "app\View\View.php";
+require_once "View.php";
 
-class CalzadosView extends view {
-
+class CalzadosView extends View {
     function showCalzados($marcas, $calzados) { 
         $this->smarty->assign("calzados", $calzados);
         $this->smarty->assign("marcas", $marcas);
         $this->smarty->display("allCalzados.tpl");
     }
 
-    function showCalzadoByMarca($calzadoPorMarca) {
-        $this->smarty->assign("calzadoPorMarca", $calzadoPorMarca);
+    function showCalzadoByMarca($calzadoByMarca) {
+        $this->smarty->assign("calzadoByMarca", $calzadoByMarca);
         $this->smarty->display("calzadosByMarca.tpl");
     }
 

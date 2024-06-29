@@ -1,7 +1,8 @@
 <?php
 
-require_once 'app\Model\MarcasModel.php';
-require_once 'app\View\MarcasView.php';
+require_once "app/Model/MarcasModel.php";
+require_once "app/View/MarcasView.php";
+require_once "app/View/ErrorView.php";
 
 class MarcasController
 {
@@ -15,8 +16,7 @@ class MarcasController
         $this->view = new MarcasView();
         $this->err = new ErrorView();
     }
-    function showMarcas()
-    {
+    function showMarcas(){
         $marcas = $this->model->getAll();
         $this->view->showMarcas($marcas);
     }
@@ -29,7 +29,7 @@ class MarcasController
                 $nombre = $_POST['nombre'];
                 $descripcion = $_POST['descripcion'];
                 $this->model->insertMarca($nombre, $descripcion);
-                header("Location:" . BASE_URL . "marca");
+                header("Location:" . BASE_URL . "marcas");
 
             } else {
                 $this->err->showError("Faltan datos");
@@ -39,7 +39,7 @@ class MarcasController
     function deleteMarca($id_marca)
     {
         $this->model->deleteMarca($id_marca);
-        header("Location:" . BASE_URL . "marca");
+        header("Location:" . BASE_URL . "marcas");
     }
     function editMarca($id_marca)
     {
@@ -56,7 +56,7 @@ class MarcasController
                 $descripcion = $_POST['descripcion_e'];
                 $id_marca = $_POST['id_marca'];
                 $this->model->updateMarca($nombre, $descripcion, $id_marca);
-                header("Location:" . BASE_URL . "marca");
+                header("Location:" . BASE_URL . "marcas");
 
             } else {
                 $this->err->showError("Faltan datos");

@@ -1,20 +1,27 @@
 {include 'header.tpl'}
 
 <div class="calzado">
-{foreach $calzado as $item}
-<div>
-      <ul class="containerList" style="width: 20rem";>
-        <h5 class='calzado'>Calzado</h5>
-        <li class="list-group-item articles">{$item->nombre}</li>
-        <li class="list-group-item articles">{$item->tipo}</li>
-        <li class="list-group-item articles">Talle:{$item->talle}</li>
-        <li class="list-group-item articles">${$item->precio}</li>
-        <li class="list-group-item articles">{$item->descripcion}</li>
-        <img src="img/{$item->imagen}" alt="{$item->nombre}" class="imgCalzado">
-        <li class="list-group-item articles" value="{$item->id_marca}">{$item->nombre}</li>
+  {if !empty($calzado)}
+    <div>
+      <ul class="containerList" style="width: 20rem;">
+        <h5 class='shoe'>Calzado</h5>
+        <li class="list-group-item articles">{$calzado->nombre}</li>
+        <li class="list-group-item articles">{$calzado->tipo}</li>
+        <li class="list-group-item articles">Talle: {$calzado->talle}</li>
+        <li class="list-group-item articles">${$calzado->precio}</li>
+        <li class="list-group-item articles">{$calzado->descripcion}</li>
+        <li class="list-group-item articles">{$calzado->marca}</li>
+        {if $calzado->imagen}
+          <img src="img/{$calzado->imagen}" alt="{$calzado->nombre}" class="imgCalzado">
+        {else}
+          <li class="imgcontainer">GOAT Streetwear</li>
+        {/if}
+        <li class="list-group-item articles" value="{$calzado->id_marca}">{$calzado->nombre}</li>
       </ul>
     </div>
-{/foreach}
+  {else}
+    <h1 class="nodata">No hay calzado disponible</h1>
+  {/if}
 </div>
 
 {include 'footer.tpl'}

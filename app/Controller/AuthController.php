@@ -1,9 +1,8 @@
 <?php
-require_once 'app\View\AuthView.php';
-require_once 'app\Model\AuthModel.php';
+require_once 'app/View/AuthView.php';
+require_once 'app/Model/AuthModel.php';
 
-class AuthController
-{
+class AuthController {
     private $model;
     private $view;
 
@@ -24,26 +23,29 @@ class AuthController
             if (!empty($_POST['email']) && !empty($_POST['password'])) {
                 $email = $_POST['email'];
                 $password = $_POST['password'];
+    
                 $log_in = $this->model->getUser($email);
-
+    
                 if ($log_in && password_verify($password, $log_in->password)) {
-
                     session_start();
                     $_SESSION['IS_LOGGED'] = true;
                     $_SESSION['USERNAME'] = $log_in->email;
-                    $_SESSION['ROLE'] = $log_in->rol;
-                    
-                    header("Location:" . BASE_URL . "tasks");
+                    $_SESSION['ROLE'] = $log_in->role;
+    
+                    var_dump($_SESSION['IS_LOGGED']);
+                    var_dump($_SESSION['USERNAME']);
+                    var_dump($_SESSION['ROLE']);
+                    header("Location: " . BASE_URL . "home");
                     die();
                 } else {
                     $this->view->showLogin("Usuario incorrecto");
                 }
             } else {
-                $this->view->showLogin("Faltan datos obligatorios");
+                $this->view->showLogin("Faltan datos");
             }
         }
-    }
-
+    }    
+    
     function logout()
     {
         session_start();
